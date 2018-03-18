@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Friend Finder</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  	<script src="https://code.jquery.com/jquery.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1> Friend Survey</h1>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							Survey Questions
+						</h4>
+					</div>
+
+					<div class="panel-body">
+						<form role="form">
+							<p> How strongly do you feel about food?</p>
+							<div class="form-group">
+								<input type="radio" id="food-question1" value="1" name="food"/>
+								<label for="food-question1">1 (Strongly Disagree)</label>
+
+								<input type="radio" id="food-question2" value="2" name="food"/>
+								<label for="food-question2">2</label>
+
+								<input type="radio" id="food-question3" value="3" name="food"/>
+								<label for="food-question3">3</label>
+
+								<input type="radio" id="food-question4" value="4" name="food"/>
+								<label for="food-question4">4</label>
+
+								<input type="radio" id="food-question5" value="5" name="food"/>
+								<label for="food-question5">5 (Strongly Agree)</label>
+							</div>
+						</form>
+
+						<form role="form">
+							<p> In terms of politics, how conservative are you?</p>
+							<div class="form-group">
+								<input type="radio" id="politics-question1" value="1" name="politics"/>
+								<label for="politics-question1">1 (Strongly Disagree)</label>
+
+								<input type="radio" id="politics-question2" value="2" name="politics"/>
+								<label for="politics-question2">2</label>
+
+								<input type="radio" id="politics-question3" value="3" name="politics"/>
+								<label for="politics-question3">3</label>
+
+								<input type="radio" id="politics-question4" value="4" name="politics"/>
+								<label for="politics-question4">4</label>
+
+								<input type="radio" id="politics-question5" value="5" name="politics"/>
+								<label for="politics-question5">5 (Strongly Agree)</label>
+							</div>
+						</form>
+
+						<form role="form">
+							<p> Do you want children</p>
+							<div class="form-group">
+								<input type="radio" id="children-question1" value="1" name="children"/>
+								<label for="children-question1">1 (Strongly Disagree)</label>
+
+								<input type="radio" id="children-question2" value="2" name="children"/>
+								<label for="children-question2">2</label>
+
+								<input type="radio" id="children-question3" value="3" name="children"/>
+								<label for="children-question3">3</label>
+
+								<input type="radio" id="children-question4" value="4" name="children"/>
+								<label for="children-question4">4</label>
+
+								<input type="radio" id="children-question5" value="5" name="children"/>
+								<label for="children-question5">5 (Strongly Agree)</label>
+							</div>
+						</form>
+
+						<form role="form">
+							<p> You like dogs more than cats</p>
+							<div class="form-group">
+								<input type="radio" id="dogs-question1" value="1" name="dogs"/>
+								<label for="dogs-question1">1 (Strongly Disagree)</label>
+
+								<input type="radio" id="dogs-question2" value="2" name="dogs"/>
+								<label for="dogs-question2">2</label>
+
+								<input type="radio" id="dogs-question3" value="3" name="dogs"/>
+								<label for="dogs-question3">3</label>
+
+								<input type="radio" id="dogs-question4" value="4" name="dogs"/>
+								<label for="dogs-question4">4</label>
+
+								<input type="radio" id="dogs-question5" value="5" name="dogs"/>
+								<label for="dogs-question5">5 (Strongly Agree)</label>
+							</div>
+						</form>
+
+						<form role="form">
+							<p> You prefer a sports car over a family car</p>
+							<div class="form-group">
+								<input type="radio" id="car-question1" value="1" name="car"/>
+								<label for="car-question1">1 (Strongly Disagree)</label>
+
+								<input type="radio" id="car-question2" value="2" name="car"/>
+								<label for="car-question2">2</label>
+
+								<input type="radio" id="car-question3" value="3" name="car"/>
+								<label for="car-question3">3</label>
+
+								<input type="radio" id="car-question4" value="4" name="car"/>
+								<label for="car-question4">4</label>
+
+								<input type="radio" id="car-question5" value="5" name="car"/>
+								<label for="car-question5">5 (Strongly Agree)</label>
+							</div>
+						</form>
+
+						<form role="form">
+							<p> You like to eat meat</p>
+							<div class="form-group">
+								<input type="radio" id="meat-question1" value="1" name="meat"/>
+								<label for="meat-question1">1 (Strongly Disagree)</label>
+
+								<input type="radio" id="meat-question2" value="2" name="meat"/>
+								<label for="meat-question2">2</label>
+
+								<input type="radio" id="meat-question3" value="3" name="meat"/>
+								<label for="meat-question3">3</label>
+
+								<input type="radio" id="meat-question4" value="4" name="meat"/>
+								<label for="meat-question4">4</label>
+
+								<input type="radio" id="meat-question5" value="5" name="meat"/>
+								<label for="meat-question5">5 (Strongly Agree)</label>
+							</div>
+						</form>
+
+						<form role="form">
+							<p> A perfect day involves you staying home</p>
+							<div class="form-group">
+								<input type="radio" id="home-question1" value="1" name="home"/>
+								<label for="home-question1">1 (Strongly Disagree)</label>
+
+								<input type="radio" id="home-question2" value="2" name="home"/>
+								<label for="home-question2">2</label>
+
+								<input type="radio" id="home-question3" value="3" name="home"/>
+								<label for="home-question3">3</label>
+
+								<input type="radio" id="home-question4" value="4" name="home"/>
+								<label for="home-question4">4</label>
+
+								<input type="radio" id="home-question5" value="5" name="home"/>
+								<label for="home-question5">5 (Strongly Agree)</label>
+							</div>
+						</form>
+
+						<form role="form">
+							<p> You tend to let minor disagreements go</p>
+							<div class="form-group">
+								<input type="radio" id="minor-question1" value="1" name="minor"/>
+								<label for="minor-question1">1 (Strongly Disagree)</label>
+
+								<input type="radio" id="minor-question2" value="2" name="minor"/>
+								<label for="minor-question2">2</label>
+
+								<input type="radio" id="minor-question3" value="3" name="minor"/>
+								<label for="minor-question3">3</label>
+
+								<input type="radio" id="minor-question4" value="4" name="minor"/>
+								<label for="minor-question4">4</label>
+
+								<input type="radio" id="minor-question5" value="5" name="minor"/>
+								<label for="minor-question5">5 (Strongly Agree)</label>
+							</div>
+						</form>
+
+						<form role="form">
+							<p> At a party you like to be the center of attention</p>
+							<div class="form-group">
+								<input type="radio" id="center-question1" value="1" name="center"/>
+								<label for="center-question1">1 (Strongly Disagree)</label>
+
+								<input type="radio" id="center-question2" value="2" name="center"/>
+								<label for="center-question2">2</label>
+
+								<input type="radio" id="center-question3" value="3" name="center"/>
+								<label for="center-question3">3</label>
+
+								<input type="radio" id="center-question4" value="4" name="center"/>
+								<label for="center-question4">4</label>
+
+								<input type="radio" id="center-question5" value="5" name="center"/>
+								<label for="center-question5">5 (Strongly Agree)</label>
+							</div>
+						</form>
+
+						<form role="form">
+							<p> You are clean</p>
+							<div class="form-group">
+								<input type="radio" id="clean-question1" value="1" name="clean"/>
+								<label for="clean-question1">1 (Strongly Disagree)</label>
+
+								<input type="radio" id="clean-question2" value="2" name="clean"/>
+								<label for="clean-question2">2</label>
+
+								<input type="radio" id="clean-question3" value="3" name="clean"/>
+								<label for="clean-question3">3</label>
+
+								<input type="radio" id="clean-question4" value="4" name="clean"/>
+								<label for="clean-question4">4</label>
+
+								<input type="radio" id="clean-question5" value="5" name="clean"/>
+								<label for="clean-question5">5 (Strongly Agree)</label>
+							</div>
+						</form>
+						<input type="submit" id="submitButton" name="submit">
+
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	$("#submitButton").on("click", function(event) {
+		event.preventDefault();
+		// var flag = true;
+		var errorArray = [];
+		$(':radio').each(function() {
+			var name = $(this).attr('name');
+			if(!$(':radio[name="' + name + '"]:checked').length) {
+				errorArray.push("Question about " + name + " not answered");
+				// flag = false;
+			} 
+		})
+		if(errorArray.length > 0) {
+			for(x in errorArray) {
+				console.log(errorArray[x])
+
+			}
+			alert("please answer all questions");
+		} else {
+			var newSurvey = {
+					food: $("input[name='food']:checked").val().trim(),
+					politics: $("input[name='children']:checked").val().trim(),
+					children: $("input[name='food']:checked").val().trim(),
+					dogs: $("input[name='dogs']:checked").val().trim(),
+					car: $("input[name='car']:checked").val().trim(),
+					meat: $("input[name='meat']:checked").val().trim(),
+					home: $("input[name='home']:checked").val().trim(),
+					minor: $("input[name='minor']:checked").val().trim(),
+					center: $("input[name='center']:checked").val().trim(),
+					clean: $("input[name='clean']:checked").val().trim(),
+				}
+				console.log("hello")
+				console.log(newSurvey)
+			
+		}
+				
+		
+	})
+</script>
