@@ -24,6 +24,16 @@
 
 					<div class="panel-body">
 						<form role="form">
+							<label for="username">Name</label>
+							<input type="text" name="username" id="username">
+							<label for="picture">Picture Link</label>
+							<input type="text" name="picture" id="picture">
+							
+						</form>
+						<!-- <form role="form">
+							
+						</form> -->
+						<form role="form">
 							<p> How strongly do you feel about food?</p>
 							<div class="form-group">
 								<input type="radio" id="food-question1" value="1" name="food"/>
@@ -239,6 +249,8 @@
 		event.preventDefault();
 		// var flag = true;
 		var errorArray = [];
+		console.log(($('#username').val()));
+		console.log(($('#picture').val()));
 		$(':radio').each(function() {
 			var name = $(this).attr('name');
 			if(!$(':radio[name="' + name + '"]:checked').length) {
@@ -246,28 +258,76 @@
 				// flag = false;
 			} 
 		})
-		if(errorArray.length > 0) {
+
+		if((errorArray.length > 0) || ($('#username').val()=="") || ($('#picture').val()=="")) {
 			for(x in errorArray) {
 				console.log(errorArray[x])
 
 			}
 			alert("please answer all questions");
+			errorArray = []
 		} else {
+			var currentURL = window.location.origin;
 			var newSurvey = {
-					food: $("input[name='food']:checked").val().trim(),
-					politics: $("input[name='children']:checked").val().trim(),
-					children: $("input[name='food']:checked").val().trim(),
-					dogs: $("input[name='dogs']:checked").val().trim(),
-					car: $("input[name='car']:checked").val().trim(),
-					meat: $("input[name='meat']:checked").val().trim(),
-					home: $("input[name='home']:checked").val().trim(),
-					minor: $("input[name='minor']:checked").val().trim(),
-					center: $("input[name='center']:checked").val().trim(),
-					clean: $("input[name='clean']:checked").val().trim(),
+					"name": $("input[name='username']").val().trim(),
+					"photo": $("input[name='picture']").val().trim(),
+					"scores": [$("input[name='food']:checked").val().trim(),
+					$("input[name='children']:checked").val().trim(),
+					$("input[name='food']:checked").val().trim(),
+					$("input[name='dogs']:checked").val().trim(),
+					$("input[name='car']:checked").val().trim(),
+					$("input[name='meat']:checked").val().trim(),
+					$("input[name='home']:checked").val().trim(),
+					$("input[name='minor']:checked").val().trim(),
+					$("input[name='center']:checked").val().trim(),
+					$("input[name='clean']:checked").val().trim()]
 				}
-				console.log("hello")
 				console.log(newSurvey)
-			
+				alert("Thank you for taking the survey!")
+				// window.location = "/home"
+
+				$.post("/api/friends", newSurvey)
+				// , function(data) {
+				// // 	if(data) {
+				// // 		console.log("data inserted")
+				// // 	} else {
+				// // 		console.log("data insert failed")
+				// // 	}
+				// // })
+				$.ajax({ url: currentURL + "/api/friends", method: "GET" })
+					.then(function(getMatchData) {
+					// Here we are logging the URL so we have access to it for troubleshooting
+						var totalDifference = 40;
+						var matchMaker = 0;
+						var currentMatchDifference = 0;
+						console.log("------------------------------------");
+						console.log("URL: " + currentURL + "/api/friends");
+						console.log("------------------------------------");
+						// Here we then log the NYTData to console, where it will show up as an object.
+						console.log(getMatchData);
+						console.log("------------------------------------");
+						
+						// Loop through and display each of the customers
+						for (var i = 0; i < getMatchData.length; i++) {
+							console.log("i " + i)
+							console.log(getMatchData);
+							console.log(getMatchData[i].name);
+							console.log(getMatchData[i].photo);
+							console.log(getMatchData[i].scores.length)
+							// console.log(getMatchData[i].scores.length)
+							for(var x = 0; x<getMatchData.length;x++) {
+								// currentMatchDifference = currentMatchDifference + Math.abs(n
+								console.log("x " + x);
+							}
+
+							if(currentMatchDifference<totalDifference) {
+								totalDifference = currentMatchDifference
+								matchMaker = i
+								console.log("match change")
+							}
+						}
+					});
+						
 		}
 				
 		
