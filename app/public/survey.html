@@ -272,8 +272,8 @@
 					"name": $("input[name='username']").val().trim(),
 					"photo": $("input[name='picture']").val().trim(),
 					"scores": [$("input[name='food']:checked").val().trim(),
+					$("input[name='politics']:checked").val().trim(),
 					$("input[name='children']:checked").val().trim(),
-					$("input[name='food']:checked").val().trim(),
 					$("input[name='dogs']:checked").val().trim(),
 					$("input[name='car']:checked").val().trim(),
 					$("input[name='meat']:checked").val().trim(),
@@ -299,7 +299,8 @@
 					// Here we are logging the URL so we have access to it for troubleshooting
 						var totalDifference = 40;
 						var matchMaker = 0;
-						var currentMatchDifference = 0;
+						
+						var arrayLength = getMatchData.length-1
 						console.log("------------------------------------");
 						console.log("URL: " + currentURL + "/api/friends");
 						console.log("------------------------------------");
@@ -307,23 +308,27 @@
 						console.log(getMatchData);
 						console.log("------------------------------------");
 						
+						if (getMatchData.length<=1) {
+							console.log("congrats you are first")
+						} else {
 						// Loop through and display each of the customers
-						for (var i = 0; i < getMatchData.length; i++) {
-							console.log("i " + i)
-							console.log(getMatchData);
-							console.log(getMatchData[i].name);
-							console.log(getMatchData[i].photo);
-							console.log(getMatchData[i].scores.length)
-							// console.log(getMatchData[i].scores.length)
-							for(var x = 0; x<getMatchData.length;x++) {
-								// currentMatchDifference = currentMatchDifference + Math.abs(n
-								console.log("x " + x);
-							}
+							for (var i = 0; i < getMatchData.length-1; i++) {
+								var currentMatchDifference = 0;
+								// console.log(getMatchData[i].scores.length)
+								for(var x = 0; x<(getMatchData[i].scores.length-1);x++) {
 
-							if(currentMatchDifference<totalDifference) {
-								totalDifference = currentMatchDifference
-								matchMaker = i
-								console.log("match change")
+									currentMatchDifference = currentMatchDifference + Math.abs(getMatchData[i].scores[x]-getMatchData[arrayLength].scores[x])
+
+									console.log(Math.abs(getMatchData[i].scores[x]-getMatchData[arrayLength].scores[x]));
+
+									console.log("currentMatchDifference " + currentMatchDifference)
+								}
+
+								if(currentMatchDifference<totalDifference) {
+									totalDifference = currentMatchDifference
+									matchMaker = i
+									console.log("match change " + i)
+								}
 							}
 						}
 					});

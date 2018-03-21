@@ -8,7 +8,7 @@ module.exports = function(app) {
 
 	app.post('/api/friends', function(req, res) {
 		console.log("body")
-		console.log(req.body)
+		console.log('weird brackets', req.body)
 		friends.push(req.body)
 	})
 }
