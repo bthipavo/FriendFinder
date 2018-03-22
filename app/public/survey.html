@@ -14,7 +14,7 @@
 		</div>
 
 		<div class="row">
-			<div class="col-lg-12">
+			<div class="col-lg-6">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">
@@ -238,7 +238,22 @@
 					
 				</div>
 			</div>
+
+			<div class="col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							Matches
+						</h4>
+					</div>
+
+					<div class="panel-body" id="matches">
+					</div>
+				</div>
+			</div>
 		</div>
+
+		
 	</div>
 
 </body>
@@ -247,6 +262,7 @@
 <script type="text/javascript">
 	$("#submitButton").on("click", function(event) {
 		event.preventDefault();
+		$("#matches").append("")
 		// var flag = true;
 		var errorArray = [];
 		console.log(($('#username').val()));
@@ -349,8 +365,14 @@
 									console.log(matchMaker.length)
 									console.log("matches: " + matchMaker[y])
 								}
+						}//end of if
+
+						for (var y = 0; y<matchMaker.length; y++) {
+							console.log("matches: " + matchMaker[y])
+							$("#matches").append("<h2>"+getMatchData[matchMaker[y]].name+"</h2>")
+							$("#matches").append('<img src="'+getMatchData[matchMaker[y]].photo+'"alt="future mate" height="42" width="42">')
 						}
-					});
+					});//end of ajax call
 						
 		}
 				
