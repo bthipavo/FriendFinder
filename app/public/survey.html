@@ -266,6 +266,9 @@
 			}
 			alert("please answer all questions");
 			errorArray = []
+		} else if(($('#picture').val()).match(/\.(jpeg|jpg|gif|png)$/) == null) {
+				alert("please enter in real image")
+			
 		} else {
 			var currentURL = window.location.origin;
 			var newSurvey = {
@@ -298,7 +301,7 @@
 					.then(function(getMatchData) {
 					// Here we are logging the URL so we have access to it for troubleshooting
 						var totalDifference = 40;
-						var matchMaker = 0;
+						var matchMaker = [];
 						
 						var arrayLength = getMatchData.length-1
 						console.log("------------------------------------");
@@ -313,23 +316,39 @@
 						} else {
 						// Loop through and display each of the customers
 							for (var i = 0; i < getMatchData.length-1; i++) {
+								console.log("loop " + i)
 								var currentMatchDifference = 0;
 								// console.log(getMatchData[i].scores.length)
 								for(var x = 0; x<(getMatchData[i].scores.length-1);x++) {
 
 									currentMatchDifference = currentMatchDifference + Math.abs(getMatchData[i].scores[x]-getMatchData[arrayLength].scores[x])
 
-									console.log(Math.abs(getMatchData[i].scores[x]-getMatchData[arrayLength].scores[x]));
+									// console.log("difference: "+(Math.abs(getMatchData[i].scores[x]-getMatchData[arrayLength].scores[x])) + " match: " + getMatchData[i].scores[x] + " current user: " +getMatchData[arrayLength].scores[x]);
 
-									console.log("currentMatchDifference " + currentMatchDifference)
+									// console.log("currentMatchDifference " + currentMatchDifference)
 								}
 
-								if(currentMatchDifference<totalDifference) {
+								if(currentMatchDifference<=totalDifference) {
+									if (currentMatchDifference == totalDifference) {
+										console.log("equals")
+										matchMaker.push(i)
+									} else {
+										console.log(currentMatchDifference + " currentMatchDifference")
+										console.log(totalDifference + " totalDifference")
+										console.log("new value")
+										matchMaker = []
+										matchMaker.push(i)
+									}
 									totalDifference = currentMatchDifference
-									matchMaker = i
 									console.log("match change " + i)
 								}
+
+
 							}
+							for (var y = 0; y<matchMaker.length; y++) {
+									console.log(matchMaker.length)
+									console.log("matches: " + matchMaker[y])
+								}
 						}
 					});
 						
