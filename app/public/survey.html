@@ -239,7 +239,7 @@
 				</div>
 			</div>
 
-			<div class="col-lg-6">
+<!-- 			<div class="col-lg-6">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">
@@ -250,7 +250,24 @@
 					<div class="panel-body" id="matches">
 					</div>
 				</div>
+			</div> -->
+			<div id="myModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							
+						</div>
+						<div class="modal-body" id="matches">
+								
+						</div>
+						<div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='/home.html'">Close</button>
+					    </div>
+					</div>
+				</div>
 			</div>
+
 		</div>
 
 		
@@ -367,8 +384,10 @@
 								}
 						}//end of if
 
+
 						for (var y = 0; y<matchMaker.length; y++) {
 							console.log("matches: " + matchMaker[y])
+							$("#myModal").modal('toggle');
 							$("#matches").append("<h2>"+getMatchData[matchMaker[y]].name+"</h2>")
 							$("#matches").append('<img src="'+getMatchData[matchMaker[y]].photo+'"alt="future mate" height="42" width="42">')
 						}
